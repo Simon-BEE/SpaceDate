@@ -1,7 +1,7 @@
 //var jour = prompt('Quel jour es-tu née ?');
 //var mois = prompt('Quel mois es-tu née ?');
 //var annee = prompt('Quelle année es-tu née ?');
-var birthday = prompt('Date d\'anniversaire ?(JJ/MM/AAAA)');
+var birthday = prompt('Quel est votre date d\'anniversaire ?(JJ/MM/AAAA)');
 
 if (birthday.length == 10) {
     var tableau = birthday.split("/",3);
@@ -18,14 +18,10 @@ if (birthday.length == 10) {
         } else {
             jourMois = (mois - month)*30.4375;
         }
-        var totalJour = ((year-annees)*365.25) - jourMois - jours;
-        console.log(totalJour);
-
-
 
         // Calcul du nombre d'année
         //var nbJours = (year - annee) * 365.25;
-
+        var totalJour = ((year-annees)*365.25) - jourMois - jours;
 
         var ageTerre = totalJour /365.25;
         var ageVenus = totalJour /224.70;
@@ -34,6 +30,8 @@ if (birthday.length == 10) {
         var ageMars = totalJour /686.980;
         var ageSaturne = totalJour /10759.2;
         var agePluton = totalJour /90469.7;
+        var ageUranus = totalJour /30664;
+        var ageNeptune = totalJour /60148;
 
         // Calcul du nombre de jours
         var nbHeures = totalJour*23.93;
@@ -45,9 +43,8 @@ if (birthday.length == 10) {
         var jourMars = nbHeures /24.63;
         var jourSaturne = nbHeures /10.23;
         var jourPluton = nbHeures /(6.39*23.93);
-
-        console.log(ageTerre);
-
+        var jourUranus = nbHeures /17.9;
+        var jourNeptune = nbHeures /19.2;
 
         // Inclusion dans le html
         var terre = document.getElementById('ageTerre');
@@ -69,7 +66,13 @@ if (birthday.length == 10) {
         saturne.innerHTML = 'Tu as '+ageSaturne.toFixed(1)+' ans.<br />Soit '+jourSaturne.toFixed(1)+' jours de cette planète !';
 
         var pluton = document.getElementById('agePluton');
-        pluton.innerHTML = 'Tu as '+agePluton.toFixed(1)+' ans.<br />Soit '+jourPluton.toFixed(1)+' jours de cette planète !';
+        pluton.innerHTML = 'Tu as '+agePluton.toFixed(2)+' ans.<br />Soit '+jourPluton.toFixed(1)+' jours de cette planète !';
+
+        var uranus = document.getElementById('ageUranus');
+        uranus.innerHTML = 'Tu as '+ageUranus.toFixed(2)+' ans.<br />Soit '+jourUranus.toFixed(1)+' jours de cette planète !';
+
+        var neptune = document.getElementById('ageNeptune');
+        neptune.innerHTML = 'Tu as '+ageNeptune.toFixed(2)+' ans.<br />Soit '+jourNeptune.toFixed(1)+' jours de cette planète !';
 
     } else {
         // pas un nombre
